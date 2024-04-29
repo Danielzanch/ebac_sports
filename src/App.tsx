@@ -22,14 +22,6 @@ function App() {
       .then((res) => setProdutos(res))
   }, [])
 
-  function adicionarAoCarrinho(produto: Produto) {
-    if (carrinho.find((p) => p.id === produto.id)) {
-      alert('Item já adicionado')
-    } else {
-      setCarrinho([...carrinho, produto])
-    }
-  }
-
   function favoritar(produto: Produto) {
     if (favoritos.find((p) => p.id === produto.id)) {
       const favoritosSemProduto = favoritos.filter((p) => p.id !== produto.id)
@@ -37,6 +29,10 @@ function App() {
     } else {
       setFavoritos([...favoritos, produto])
     }
+  }
+
+  function adicionarAoCarrinho() {
+    console.log('test')
   }
 
   return (
@@ -48,7 +44,6 @@ function App() {
           produtos={produtos}
           favoritos={favoritos}
           favoritar={favoritar}
-          adicionarAoCarrinho={adicionarAoCarrinho}
         />
       </div>
     </>
